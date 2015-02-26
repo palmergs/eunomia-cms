@@ -1,3 +1,8 @@
+require 'simplecov'
+SimpleCov.start 'rails' do
+  coverage_dir 'public/coverage'
+end
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
@@ -25,6 +30,7 @@ require 'rspec/rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
