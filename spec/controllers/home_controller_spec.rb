@@ -21,5 +21,11 @@ RSpec.describe HomeController, type: :controller do
       get :profile
       expect(response).to redirect_to(new_user_session_path)
     end
+
+    it 'returns success if logged in' do
+      sign_in(create(:user))
+      get :profile
+      expect(response).to have_http_status(:success)
+    end
   end
 end
