@@ -16,4 +16,10 @@ RSpec.describe HomeController, type: :controller do
     end
   end
 
+  describe "GET #profile" do
+    it 'returns 401 unless logged in' do
+      get :profile
+      expect(response).to redirect_to(new_user_session_path)
+    end
+  end
 end
