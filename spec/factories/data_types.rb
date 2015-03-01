@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :data_type do
-    name "Subtitle"
-    sequence(:ident) {|n| "subtitle-#{ n }" }
+    sequence(:name) {|n| "Subtitle#{ n }" }
     editor "text_field"
     default_value({
         text: ''})

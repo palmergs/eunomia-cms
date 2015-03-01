@@ -1,8 +1,10 @@
 class Normalizer
   include Singleton
-  
+
   def normalize str
-    str.downcase.strip.gsub(/[-][-]+/, '-').
+    return nil if str.nil? || str.strip.empty?
+
+    str.strip.downcase.gsub(/[-][-]+/, '-').
         gsub(/[.][.]+/, '.').
         gsub(/[^a-z0-9._]+/, '-')
   end

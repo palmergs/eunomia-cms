@@ -24,5 +24,12 @@ RSpec.describe Normalizer, as: :lib do
     it 'converts other punctuation and spaces to dashes' do
       expect(norm.normalize('"this \'is\' a test!!!?"')).to eq('-this-is-a-test-')
     end
+
+    it 'returns nil if string is nil or empty' do
+      expect(norm.normalize(nil)).to be_nil
+      expect(norm.normalize('')).to be_nil
+      expect(norm.normalize("\n")).to be_nil
+      expect(norm.normalize(" ")).to be_nil
+    end
   end
 end
