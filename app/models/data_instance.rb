@@ -4,4 +4,5 @@ class DataInstance < ActiveRecord::Base
   belongs_to :data_template
 
   validates :ident, presence: true
+  validates :data_template, presence: true
 end

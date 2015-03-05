@@ -16,5 +16,11 @@ RSpec.describe DataInstance, type: :model do
       expect(build(:data_instance, ident: nil)).to_not be_valid
       expect(build(:data_instance, ident: '')).to_not be_valid
     end
+
+    it 'is not valid without a template' do
+      expect(build(:data_instance)).to be_valid
+      expect(build(:data_instance, data_template: nil)).to_not be_valid
+      expect(build(:data_instance, data_template_id: nil)).to_not be_valid
+    end
   end
 end
