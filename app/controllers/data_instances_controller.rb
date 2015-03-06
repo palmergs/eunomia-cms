@@ -20,27 +20,27 @@ class DataInstancesController < ApplicationController
         format.html { redirect_to(@data_instance) }
       end
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @data_instance = @data_template.find(params[:id])
+    @data_instance = @data_template.data_instances.find(params[:id])
   end
 
   def update
-    @data_instance = @data_template.find(params[:id])
+    @data_instance = @data_template.data_instances.find(params[:id])
     if @data_instance.update_attributes(update_data_instance_params)
       respond_to do |format|
         format.html { redirect_to(@data_instance) }
       end
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @data_instance = @data_template.find(params[:id])
+    @data_instance = @data_template.data_instances.find(params[:id])
     if @data_instance.destroy
       respond_to do |format|
         format.html { redirect_to(data_instances_path) }
@@ -53,7 +53,7 @@ class DataInstancesController < ApplicationController
   end
 
   private def create_data_instance_params
-    params.require(:data_instance).permit(:values, :params)
+    params.require(:data_instance).permit(:ident, :values, :params)
   end
 
   private def update_data_instance_params
