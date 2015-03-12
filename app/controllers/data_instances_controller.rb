@@ -1,5 +1,6 @@
 class DataInstancesController < ApplicationController
   before_action :set_data_template
+  before_action :authenticate_user!
 
   def index
     @data_instances = @data_template.data_instances

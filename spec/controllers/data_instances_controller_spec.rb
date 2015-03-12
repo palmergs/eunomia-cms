@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe DataInstancesController, as: :controller do
+
+  before(:each) { sign_in(@user = create(:user)) }
+
   describe '#index' do
     it 'requires a data template id' do
       dt = create(:data_template)
