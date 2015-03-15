@@ -42,6 +42,12 @@ RSpec.describe DataInstancesController, as: :controller do
       post :create, data_template_id: dt.id, data_instance: { ident: 'title', values: {}, params: {} }
       expect(response).to redirect_to data_instance_path(id: assigns(:data_instance).id)
     end
+
+    it 'is not successful if validation fails' do
+      dt = create(:data_template)
+      post :create, data_template_id: dt.id, data_instance: { values: {}, params: {} }
+      expect(response).to_not be_success
+    end
   end
 
   describe '#update' do
