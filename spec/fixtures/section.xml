@@ -1,0 +1,7 @@
+<h3><String::Name ident="true"/></h3>
+<one-or-more>
+  <Template::Subsection />
+  <Template::Example />
+  <Table/>
+  <Template::Rule />
+</one-or-more>

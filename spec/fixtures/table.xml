@@ -1,0 +1,23 @@
+<table>
+  <optional>
+    <thead>
+      <one-or-more>
+        <Table::row/>
+      </one-or-more>
+    </thead>
+  </optional>
+  <optional>
+    <tfoot>
+      <one-or-more>
+        <Table::row/>
+      </one-or-more>
+    </tfoot>
+  </optional>
+  <tbody>
+    <one-or-more>
+      <Table::row/>
+      <Table::rowHeader/>
+    </one-or-more>
+  </tbody>
+</table>
+<String::Name ident="true" numbered="true"><optional> <String::caption/></optional>
