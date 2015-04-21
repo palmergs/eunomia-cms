@@ -15,4 +15,12 @@ class DataTemplate < ActiveRecord::Base
   def elements
     Nokogiri::HTML.fragment(self.template).children
   end
+
+  def render_content
+
+  end
+
+  def render_editor
+
+  end
 end

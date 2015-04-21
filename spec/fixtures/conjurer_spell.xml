@@ -1,0 +1,28 @@
+<String::Name ident="true"/>
+<table>
+  <tbody>
+    <tr>
+      <th>Level</th>
+      <td><String::Difficulty default="easy"/></td>
+      <th>Element</th>
+      <td><Enum::Element /></td>
+    </tr>
+    <tr>
+      <th>Range</th>
+      <td><String::SpellRange default="touch"/></td>
+      <th>Creed</th>
+      <td><Enum::Creed /></th>
+    </tr>
+    <tr>
+      <th>Cost</th>
+      <td><String::SpellCost /></td>
+      <th>Materials</th>
+      <td><String::SpellMaterials /></td>
+    </tr>
+    <tr>
+      <th>Effect</th>
+      <td colspan="3"><String:SpellEffect /></td>
+    </tr>
+  </tbody>
+</table>
+<Markdown::Description/>
