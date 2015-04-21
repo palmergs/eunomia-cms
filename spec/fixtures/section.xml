@@ -1,7 +1,12 @@
-<h3><String::Name ident="true"/></h3>
+<String::Name ident="true" numbered="true"/>
 <one-or-more>
-  <Template::Subsection />
+  <Markdown::paragraph/>
+  <Template::Section />
   <Template::Example />
-  <Table/>
   <Template::Rule />
+  <Template::ConjurerSpell />
+  <Template::WizardSpell />
+  <Template::Skill />
+  <Template::Creature />
+  <Template::Table />
 </one-or-more>

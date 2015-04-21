@@ -1,0 +1,5 @@
+<h2><String::Name ident="true" number-depth="1"/></h2>
+<one-or-more>
+  <Template::Section/>
+  <Template::Table/>
+</one-or-more>
