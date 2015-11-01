@@ -1,5 +1,0 @@
-<String::Name ident="true"/><optional>, <String::Title /></optional>
-<Template::AttributeBlock/>
-<optional>
-  <Markdown::Description/>
-</optional>
