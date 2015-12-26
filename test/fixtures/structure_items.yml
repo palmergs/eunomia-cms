@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  type: StructureItem
+  ident: my-structure-item
+  name: My Structure Item
+  description: MyText
+  params: '{}'
+  default_params: '{}'
+
+two:
+  id: 2
+  type: StructureItem
+  ident: a-second-item
+  name: A Second Item
+  description: MyText
+  params: '{}'
+  default_params: '{}'

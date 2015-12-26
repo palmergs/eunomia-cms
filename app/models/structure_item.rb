@@ -1,0 +1,2 @@
+class StructureItem < ApplicationRecord
+end
