@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  structure_item_id: 1
+  parent_id: 1
+  params: '{}'
+  content: MyText
+  rel_order: 1
+
+two:
+  structure_item_id: 1
+  parent_id: 1
+  params: '{}'
+  content: MyText
+  rel_order: 1
