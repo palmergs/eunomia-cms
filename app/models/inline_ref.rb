@@ -1,0 +1,2 @@
+class InlineRef < ApplicationRecord
+end
