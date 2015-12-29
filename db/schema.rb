@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151229013851) do
+ActiveRecord::Schema.define(version: 20151229015511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,38 @@ ActiveRecord::Schema.define(version: 20151229013851) do
     t.index ["parent_id"], name: "index_content_items_on_parent_id", using: :btree
     t.index ["rel_order"], name: "index_content_items_on_rel_order", using: :btree
     t.index ["structure_item_id"], name: "index_content_items_on_structure_item_id", using: :btree
+  end
+
+  create_table "inline_items", force: :cascade do |t|
+    t.integer  "structure_item_id",                          null: false
+    t.string   "ident",             limit: 100,              null: false
+    t.string   "name",                                       null: false
+    t.text     "description",                   default: "", null: false
+    t.string   "delim_start",       limit: 6,                null: false
+    t.string   "delim_end",         limit: 6,                null: false
+    t.text     "inline_style",                  default: "", null: false
+    t.text     "key_style",                     default: "", null: false
+    t.text     "content_style",                 default: "", null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.index ["ident"], name: "index_inline_items_on_ident", using: :btree
+    t.index ["structure_item_id"], name: "index_inline_items_on_structure_item_id", using: :btree
+  end
+
+  create_table "inline_refs", force: :cascade do |t|
+    t.integer  "content_item_id",                            null: false
+    t.integer  "reference_item_id",                          null: false
+    t.integer  "inline_item_id",                             null: false
+    t.integer  "start_pos",                                  null: false
+    t.integer  "end_pos",                                    null: false
+    t.string   "display",           limit: 100, default: "", null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.index ["content_item_id"], name: "index_inline_refs_on_content_item_id", using: :btree
+    t.index ["end_pos"], name: "index_inline_refs_on_end_pos", using: :btree
+    t.index ["inline_item_id"], name: "index_inline_refs_on_inline_item_id", using: :btree
+    t.index ["reference_item_id"], name: "index_inline_refs_on_reference_item_id", using: :btree
+    t.index ["start_pos"], name: "index_inline_refs_on_start_pos", using: :btree
   end
 
   create_table "structure_items", force: :cascade do |t|

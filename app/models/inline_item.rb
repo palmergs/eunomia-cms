@@ -1,0 +1,2 @@
+class InlineItem < ApplicationRecord
+end

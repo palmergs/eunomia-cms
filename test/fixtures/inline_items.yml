@@ -1,0 +1,24 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  structure_item_id: 1
+  name: MyString
+  ident: MyString
+  description: MyText
+  delim_start: '[['
+  delim_end: ']]'
+  inline_style: '.inline-style { }'
+  key_style: '.key-style { }'
+  content_style: '.content-style { }'
+
+two:
+  structure_item_id: 1
+  name: MyString
+  ident: MyString
+  description: MyText
+  delim_start: '{{'
+  delim_end: '}}'
+  inline_style: '.inline-style { }'
+  key_style: '.key-style { }'
+  content_style: '.content-style { }'
+
