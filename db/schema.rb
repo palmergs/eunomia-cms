@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151226171241) do
+ActiveRecord::Schema.define(version: 20151229013234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20151226171241) do
     t.datetime "updated_at",                              null: false
     t.index ["ident"], name: "index_structure_items_on_ident", using: :btree
     t.index ["type"], name: "index_structure_items_on_type", using: :btree
+  end
+
+  create_table "structure_relations", force: :cascade do |t|
+    t.integer "parent_id",                null: false
+    t.integer "child_id",                 null: false
+    t.boolean "optional",  default: true, null: false
+    t.integer "rel_order",                null: false
+    t.index ["child_id"], name: "index_structure_relations_on_child_id", using: :btree
+    t.index ["parent_id"], name: "index_structure_relations_on_parent_id", using: :btree
+    t.index ["rel_order"], name: "index_structure_relations_on_rel_order", using: :btree
   end
 
 end

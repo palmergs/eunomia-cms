@@ -1,0 +1,2 @@
+class StructureRelation < ApplicationRecord
+end
