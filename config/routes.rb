@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :structure_items
       resources :content_items
+      resources :inline_items
     end
   end
 
