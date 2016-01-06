@@ -12,7 +12,7 @@ class Api::V1::InlineItemsController < ApplicationController
   def show
     @inline_item = InlineItem.find(params[:id])
     render json: @inline_item
-  rescue Exception => e
+  rescue ActiveRecord::RecordNotFound => e
     render json: {}, status: :not_found
   end
 
@@ -32,13 +32,13 @@ class Api::V1::InlineItemsController < ApplicationController
     else
       render json: { errors: @inline_item.errors.full_messages }, status: :unprocessable_entity
     end
-  rescue Exception => e
+  rescue ActiveRecord::RecordNotFound => e
     render json: {}, status: :not_found
   end
 
   def destroy
     @inline_item = InlineItem.find(params[:id])
-  rescue Exception => e
+  rescue ActiveRecord::RecordNotFound => e
     render json: {}, status: :not_found
   end
 

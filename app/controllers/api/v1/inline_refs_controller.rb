@@ -1,6 +1,13 @@
 class Api::V1::InlineRefsController < ApplicationController
 
   def index
+    @inline_refs = InlineRef.page(params[:p])
+    render json: @inline_refs, meta: {
+      pagination: {
+        total_pages: @inline_refs.total_pages,
+        current_page: @inline_refs.current_page
+      }
+    }
   end
 
   def show
