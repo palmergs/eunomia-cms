@@ -13,7 +13,7 @@ class Api::V1::ContentItemsController < ApplicationController
   def show
     @content_item = ContentItem.find(params[:id])
     render json: @content_item
-  rescue Exception => e
+  rescue ActiveRecord::RecordNotFound => e
     render json: {}, status: :not_found
   end
 
@@ -24,8 +24,6 @@ class Api::V1::ContentItemsController < ApplicationController
     else
       render json: { errors: @content_item.errors.full_messages }, status: :unprocessable_entity
     end
-  rescue Exception => e
-    render json: {}, status: :not_found
   end
 
   def update
@@ -35,10 +33,10 @@ class Api::V1::ContentItemsController < ApplicationController
     else
       render json: { errors: @content_item.errors.full_messages }, status: :unprocessable_entity
     end
-  rescue Exception => e
+  rescue ActiveRecord::RecordNotFound => e
     render json: {}, status: :not_found
   end
-  
+
   def destroy
     @content_item = ContentItem.find(params[:id])
     if @content_item.destroy
@@ -46,17 +44,17 @@ class Api::V1::ContentItemsController < ApplicationController
     else
       render json: {}, status: :unprocessable_entity
     end
-  rescue Exception => e
+  rescue ActiveRecord::RecordNotFound => e
     render json: {}, status: :not_found
   end
 
   private
 
     def create_content_item_params
-      params.require(:content_item)
+      params.require(:content_item).permit(:parent_id, :content, :structure_item_id)
     end
 
     def update_content_item_params
-      params.require(:content_item)
+      params.require(:content_item).permit(:parent_id, :content, :structure_item_id)
     end
 end
