@@ -22,7 +22,7 @@ class Api::V1::StructureRelationsController < ApplicationController
     if @structure_relation.save
       render json: @structure_relation
     else
-      render json: { errors: { @structure_relation.errors.full_messages } },
+      render json: { errors: @structure_relation.errors.full_messages },
           status: :unprocessable_entity
     end
   end
@@ -32,7 +32,7 @@ class Api::V1::StructureRelationsController < ApplicationController
     if @structure_relation.update_attributes(update_structure_relation_params)
       render json: @structure_relation
     else
-      render json: { errors: { @structure_relation.errors.full_messages } },
+      render json: { errors: @structure_relation.errors.full_messages },
           status: :unprocessable_entity
     end
   rescue ActiveRecord::RecordNotFound => e
@@ -45,7 +45,7 @@ class Api::V1::StructureRelationsController < ApplicationController
     if @structure_relation.destroy
       render head: :ok
     else
-      render json: {  }, status: :unprocessable_entity
+      render json: {}, status: :unprocessable_entity
     end
   rescue ActiveRecord::RecordNotFound => e
     render json: {}, status: :not_found

@@ -22,7 +22,7 @@ class Api::V1::InlineRefsController < ApplicationController
     if @inline_ref.save
       render json: @inline_ref
     else
-      render json: { errors: { @inline_ref.errors.full_messages } },
+      render json: { errors: @inline_ref.errors.full_messages },
           status: :unprocessable_entity
     end
   end
@@ -32,7 +32,7 @@ class Api::V1::InlineRefsController < ApplicationController
     if @inline_ref.update_attributes(update_inline_ref_params)
       render json: @inline_ref
     else
-      render json: { errors: { @inline_ref.errors.full_messages } },
+      render json: { errors: @inline_ref.errors.full_messages },
           status: :unprocessable_entity
     end
   rescue ActiveRecord::RecordNotFound => e
