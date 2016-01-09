@@ -10,6 +10,8 @@ gem 'jbuilder',         '~> 2.0'
 gem 'bcrypt',           '~> 3.1.7'
 gem 'kaminari',         '~> 0.16'
 
+gem 'ember-cli-rails'
+
 group :development do
   gem 'puma'
 end
