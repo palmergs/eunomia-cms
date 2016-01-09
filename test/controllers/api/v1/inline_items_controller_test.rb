@@ -7,4 +7,10 @@ class Api::V1::InlineItemsControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:inline_items)
   end
+
+  test "should return inline item" do
+    get :show, params: { id: 1 }
+    assert_response :success
+    assert_not_nil assigns(:inline_item)
+  end
 end
