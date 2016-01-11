@@ -11,6 +11,7 @@ gem 'bcrypt',           '~> 3.1.7'
 gem 'kaminari',         '~> 0.16'
 
 gem 'ember-cli-rails'
+gem 'active_model_serializers', '~> 0.10.0.rc3'
 
 group :development do
   gem 'puma'
