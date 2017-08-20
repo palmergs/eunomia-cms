@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20151229015511) do
   enable_extension "hstore"
 
   create_table "content_items", force: :cascade do |t|
+    t.integer  "parent_id"
     t.integer  "structure_item_id",              null: false
-    t.integer  "parent_id",                      null: false
     t.json     "params",            default: {}, null: false
     t.text     "content",           default: "", null: false
     t.integer  "rel_order",         default: 0,  null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20151229015511) do
   end
 
   create_table "structure_relations", force: :cascade do |t|
-    t.integer "parent_id",                null: false
+    t.integer "parent_id"
     t.integer "child_id",                 null: false
     t.boolean "optional",  default: true, null: false
     t.integer "rel_order", default: 0,    null: false

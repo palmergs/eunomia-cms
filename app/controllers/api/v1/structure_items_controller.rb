@@ -13,7 +13,7 @@ class Api::V1::StructureItemsController < ApplicationController
   def show
     @structure_item = StructureItem.find(params[:id])
     render json: @structure_item
-  rescue Exception => e
+  rescue ActiveRecord::RecordNotFound => e
     render json: {}, status: :not_found
   end
 
@@ -24,8 +24,6 @@ class Api::V1::StructureItemsController < ApplicationController
     else
       render json: { errors: @structure_item.errors.full_messages }, status: :unprocessable_entity
     end
-  rescue Exception => e
-    render json: {}, status: :not_found
   end
 
   def update
@@ -35,7 +33,7 @@ class Api::V1::StructureItemsController < ApplicationController
     else
       render json: { errors: @structure_item.errors.full_messages }, status: :unprocessable_entity
     end
-  rescue Exception => e
+  rescue ActiveRecord::RecordNotFound => e
     render json: {}, status: :not_found
   end
 
@@ -46,17 +44,17 @@ class Api::V1::StructureItemsController < ApplicationController
     else
       render json: {}, status: :unprocessable_entity
     end
-  rescue Exception => e
+  rescue ActiveRecord::RecordNotFound => e
     render json: {}, status: :not_found
   end
 
   private
 
     def create_structure_item_params
-      params.require(:structure_item).permit(:type, 
-          :ident, 
-          :name, 
-          :description, 
+      params.require(:structure_item).permit(:type,
+          :ident,
+          :name,
+          :description,
           params: [ :class ])
     end
 

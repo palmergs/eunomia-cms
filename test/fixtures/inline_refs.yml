@@ -1,17 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   content_item_id: 1
   reference_item_id: 1
   inline_item_id: 1
-  start_pos: 1
-  end_pos: 1
+  start_pos: 0
+  end_pos: 2
   display: ONE
 
 two:
+  id: 2
   content_item_id: 1
   reference_item_id: 1
   inline_item_id: 1
-  start_pos: 1
-  end_pos: 1
+  start_pos: 0
+  end_pos: 2
   display: TWO
