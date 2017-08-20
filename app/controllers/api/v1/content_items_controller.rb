@@ -1,4 +1,4 @@
-class Api::V1::ContentItemsController < ApplicationController
+class Api::V1::ContentItemsController < Api::ApiController
 
   def index
     @content_items = ContentItem.page(params[:p])
@@ -13,8 +13,6 @@ class Api::V1::ContentItemsController < ApplicationController
   def show
     @content_item = ContentItem.find(params[:id])
     render json: @content_item
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, status: :not_found
   end
 
   def create
@@ -33,8 +31,6 @@ class Api::V1::ContentItemsController < ApplicationController
     else
       render json: { errors: @content_item.errors.full_messages }, status: :unprocessable_entity
     end
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, status: :not_found
   end
 
   def destroy
@@ -44,8 +40,6 @@ class Api::V1::ContentItemsController < ApplicationController
     else
       render json: {}, status: :unprocessable_entity
     end
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, status: :not_found
   end
 
   private

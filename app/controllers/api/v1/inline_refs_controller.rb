@@ -1,4 +1,4 @@
-class Api::V1::InlineRefsController < ApplicationController
+class Api::V1::InlineRefsController < Api::ApiController
 
   def index
     @inline_refs = InlineRef.page(params[:p])
@@ -13,8 +13,6 @@ class Api::V1::InlineRefsController < ApplicationController
   def show
     @inline_ref = InlineRef.find(params[:id])
     render json: @inline_ref
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, status: :not_found
   end
 
   def create
@@ -35,8 +33,6 @@ class Api::V1::InlineRefsController < ApplicationController
       render json: { errors: @inline_ref.errors.full_messages },
           status: :unprocessable_entity
     end
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, status: :not_found
   end
 
   def destroy
@@ -46,8 +42,6 @@ class Api::V1::InlineRefsController < ApplicationController
     else
       render json: {}, status: :unprocessable_entity
     end
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, status: :not_found
   end
 
   private

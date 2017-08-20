@@ -1,4 +1,4 @@
-class Api::V1::StructureRelationsController < ApplicationController
+class Api::V1::StructureRelationsController < Api::ApiController
 
   def index
     @structure_relations = StructureRelation.page(params[:p])
@@ -13,8 +13,6 @@ class Api::V1::StructureRelationsController < ApplicationController
   def show
     @structure_relation = StructureRelation.find(params[:id])
     render json: @structure_relation
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, status: :not_found
   end
 
   def create
@@ -35,8 +33,6 @@ class Api::V1::StructureRelationsController < ApplicationController
       render json: { errors: @structure_relation.errors.full_messages },
           status: :unprocessable_entity
     end
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, status: :not_found
   end
 
 
@@ -47,8 +43,6 @@ class Api::V1::StructureRelationsController < ApplicationController
     else
       render json: {}, status: :unprocessable_entity
     end
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, status: :not_found
   end
 
   private

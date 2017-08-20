@@ -16,6 +16,8 @@ class Api::V1::ContentItemsControllerTest < ActionController::TestCase
           content: 'Some title'
         }
       }
+      assert_response :success
+      assert_not_nil assigns(:content_item)
     end
   end
 end

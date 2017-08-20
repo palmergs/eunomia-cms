@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   structure_item_id: 1
   name: MyString
   ident: MyString
@@ -12,6 +13,7 @@ one:
   content_style: '.content-style { }'
 
 two:
+  id: 2
   structure_item_id: 1
   name: MyString
   ident: MyString

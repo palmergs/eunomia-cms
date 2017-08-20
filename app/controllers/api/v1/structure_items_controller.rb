@@ -1,4 +1,4 @@
-class Api::V1::StructureItemsController < ApplicationController
+class Api::V1::StructureItemsController < Api::ApiController
 
   def index
     @structure_items = StructureItem.page(params[:p])
@@ -13,8 +13,6 @@ class Api::V1::StructureItemsController < ApplicationController
   def show
     @structure_item = StructureItem.find(params[:id])
     render json: @structure_item
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, status: :not_found
   end
 
   def create
@@ -33,8 +31,6 @@ class Api::V1::StructureItemsController < ApplicationController
     else
       render json: { errors: @structure_item.errors.full_messages }, status: :unprocessable_entity
     end
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, status: :not_found
   end
 
   def destroy
@@ -44,8 +40,6 @@ class Api::V1::StructureItemsController < ApplicationController
     else
       render json: {}, status: :unprocessable_entity
     end
-  rescue ActiveRecord::RecordNotFound => e
-    render json: {}, status: :not_found
   end
 
   private
