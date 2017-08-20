@@ -1,2 +1,0 @@
-class ParagraphItem < StructureItem
-end
