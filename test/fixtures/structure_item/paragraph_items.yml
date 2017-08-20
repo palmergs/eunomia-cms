@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: 
+  id: 21
+  type: StructureItem::ParagraphItem
+  ident: my-paragraph-item
+  name: My Paragraph Item
+  params: '{}'
+  default_params: '{}'
+
+two:
+  id: 22
+  type: StructureItem::ParagraphItem
+  ident: a-second-paragraph
+  name: A Second Paragraph Item
+  params: '{}'
+  default_params: '{}'
