@@ -4,13 +4,6 @@ export default Ember.Component.extend({
 
   classNames: [ 'editable-component', 'document-editor' ],
 
-  classNameBindings: [ 'isEditing' ],
-
-  attributeBindings: [ 'contenteditable' ],
-
-  isEditing: false,
-  contenteditable: true,
-
   init() {
     this._super(...arguments);
     console.log("In init...");
@@ -49,14 +42,6 @@ export default Ember.Component.extend({
   didUpdate() {
     this._super(...arguments);
     console.log("In didUpdate...");
-  },
-
-  keyPress(evt) {
-    if(evt.charCode == 13) {
-      evt.preventDefault();
-      console.log("Prevented!");
-    }
-    console.log(evt);
   }
 
 });
