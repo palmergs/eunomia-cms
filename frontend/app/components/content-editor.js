@@ -9,6 +9,7 @@ export default Ember.Component.extend({
   attributeBindings: [ 'isEditing:contenteditable' ],
 
   isEditing: false,
+  pendingStateChange: false,
 
   keyPress(evt) {
     console.log(evt.key, evt.metaCode, evt.shiftKey, evt.ctrlKey, evt.altKey);
@@ -18,7 +19,16 @@ export default Ember.Component.extend({
   },
 
   click(evt) {
-    this.set('isEditing', true);
+    console.log("In click...");
+    this.setProperties({ isEditing: true, pendingStateChange: true });
+  },
+
+  didRender() {
+    this._super(...arguments);
+    if(this.get('pendingStateChange')) {
+      this.set('pendingStateChange', false);
+      this.$().focus();
+    }
   }
 
 });
