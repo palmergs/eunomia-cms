@@ -42,6 +42,19 @@ export default Ember.Component.extend({
   didUpdate() {
     this._super(...arguments);
     console.log("In didUpdate...");
-  }
+  },
 
+  actions: {
+    blockSelected(contentBlock) {
+      this.get('onBlockSelected')();
+    },
+
+    onContentDeleted(contentBlock) {
+      this.send("contentDeleted", contentBlock);
+    },
+
+    onContentCompleted(contentBlock) {
+      this.send("contentCompleted", contentBlock);
+    }
+  }
 });
