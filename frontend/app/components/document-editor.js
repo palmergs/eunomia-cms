@@ -4,21 +4,6 @@ export default Ember.Component.extend({
 
   classNames: [ 'editable-component', 'document-editor' ],
 
-  init() {
-    this._super(...arguments);
-    console.log("In init...");
-  },
-
-  didReceiveAttrs() {
-    this._super(...arguments);
-    console.log("In didReceiveAttrs...");
-  },
-
-  didUpdateAttrs() {
-    this._super(...arguments);
-    console.log("In didUpdateAttrs...");
-  },
-
   willRender() {
     this._super(...arguments);
     console.log("In willRender...");
@@ -49,12 +34,12 @@ export default Ember.Component.extend({
       this.get('onBlockSelected')();
     },
 
-    onContentDeleted(contentBlock) {
-      this.send("contentDeleted", contentBlock);
+    contentDeleted(contentBlock) {
+      this.send('contentDeleted', contentBlock);
     },
 
-    onContentCompleted(contentBlock) {
-      this.send("contentCompleted", contentBlock);
+    contentCompleted(contentBlock) {
+      this.send('contentCompleted', contentBlock);
     }
   }
 });

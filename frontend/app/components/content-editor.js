@@ -15,14 +15,14 @@ export default Ember.Component.extend({
     console.log(evt.key, evt.metaCode, evt.shiftKey, evt.ctrlKey, evt.altKey);
     if(evt.key == 'Enter' && !evt.shiftKey) {
       evt.preventDefault();
-      this.send("contentCompleted", this);
+      this.get('onCompleted')(this)
     }
   },
 
   click(evt) {
     console.log("In click...");
     this.setProperties({ isEditing: true, pendingStateChange: true });
-    this.get('onClick')();
+    this.get('onClick')(this);
   },
 
   didRender() {

@@ -2,17 +2,20 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+  activeBlock: null, 
+
   actions: {
     blockSelected(contentBlock) {
-      console.log("Block was selected..."); 
+      console.log("Block was selected...", contentBlock); 
     },
 
-    onContentDeleted(contentBlock) {
-      console.log("Content was deleted...");
+    contentDeleted(contentBlock) {
+      console.log("Content was deleted...", contentBlock);
     },
 
-    onContentCompleted(currentBlock) {
-      console.log("Content was completed");
+    contentCompleted(currentBlock) {
+      let block = this.store.createRecord('content-block')
+      console.log("Content was completed...", contentBlock);
     }
   }
 });

@@ -1,4 +1,6 @@
 {{#each doc.contentBlocks as |contentBlock|}}
-  {{content-editor content=contentBlock onClick=(action "blockSelected") }}
+  {{content-editor content=contentBlock 
+      onClick=(action "blockSelected") 
+      onCompleted=(action "contentCompleted") }}
 {{/each}}
 {{yield}}
