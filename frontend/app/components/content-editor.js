@@ -6,13 +6,15 @@ export default Ember.Component.extend({
 
   classNameBindings: [ 'isEditing' ],
 
-  attributeBindings: [ 'isEditing:contenteditable' ],
-
   isEditing: false,
   pendingStateChange: false,
 
   syncText() {
-    this.set('model.text', this.$().html());
+    console.log("In syncText:");
+    let textarea = this.$().find('textarea');
+    if(textarea.length > 0) {
+      this.set('model.text', textarea.val());
+    }
   },
 
   didRender() {
@@ -70,5 +72,4 @@ export default Ember.Component.extend({
       }
     }
   }
-
 });
