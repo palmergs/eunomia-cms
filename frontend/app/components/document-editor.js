@@ -31,6 +31,14 @@ export default Ember.Component.extend({
     console.log("In didUpdate...");
   },
 
+  didRender() {
+    this._super(...arguments);
+    console.log("In didRender...");
+    const elem = this.$();
+    const textarea = elem.find('textarea:last');
+    console.log(textarea);
+  },
+
   actions: {
     blockSelected(contentBlock) {
       console.log("In document editor: blockSelected");
