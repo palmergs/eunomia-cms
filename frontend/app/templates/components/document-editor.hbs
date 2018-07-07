@@ -1,6 +1,7 @@
-{{#each doc.contentBlocks as |contentBlock|}}
-  {{content-editor content=contentBlock 
+{{#each model.contentBlocks as |contentBlock|}}
+  {{content-editor model=contentBlock 
       onClick=(action "blockSelected") 
+      onDelete=(action "contentDeleted")
       onCompleted=(action "contentCompleted") }}
 {{/each}}
 {{yield}}

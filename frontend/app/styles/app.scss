@@ -8,15 +8,23 @@
 }
 
 .content-editor {
-  border: 3px solid #e0e0e0;
+  border: 3px solid #f0f0f2;
   border-radius: 1em;
   margin: 1em;
   padding: 1em;
-  background-color: #efefef;
+  background-color: #f4f4f8;
   color: #444;
   &.is-editing {
     color: #000;
-    border: 3px solid #fff;
+    border: 3px solid #f8f8fa;
     background-color: #fff;
+  }
+  textarea {
+    border: none;
+    width: 100%;
+    font-family: inherit;
+    margin: 0;
+    padding: 0;
+    height: auto;
   }
 }
