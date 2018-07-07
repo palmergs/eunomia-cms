@@ -16,11 +16,6 @@ export default Ember.Component.extend({
     }
   },
 
-  didRender() {
-    this._super(...arguments);
-    console.log("In content editor: didRender");
-  },
-
   didInsertElement() {
     this._super(...arguments);
     console.log('In content editor: didInsertElement isNew='+ this.get('model.isNew'));

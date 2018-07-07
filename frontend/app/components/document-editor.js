@@ -16,11 +16,6 @@ export default Ember.Component.extend({
     console.log("In didInsertElement...");
   },
 
-  didRender() {
-    this._super(...arguments);
-    console.log("In didRender...");
-  },
-
   willUpdate() {
     this._super(...arguments);
     console.log("In willUpdate...");
